@@ -1,0 +1,24 @@
+import React from 'react';
+
+// 定义 Button 组件的 props 类型
+interface ButtonProps {
+  label: string;              // 按钮上的文本
+  onClick?: () => void;       // 可选的点击事件处理函数
+  disabled?: boolean;         // 可选的禁用按钮的属性
+  className?: string;         // 可选的自定义样式类名
+}
+
+// 自定义 Button 组件
+const GPButton: React.FC<ButtonProps> = ({ label, onClick, disabled = false, className = '' }) => {
+  return (
+    <button
+      className={`custom-button ${className}`}   // 自定义 className，可以扩展样式
+      onClick={onClick}
+      disabled={disabled}                        // 如果传入 disabled=true，按钮将被禁用
+    >
+      {label}
+    </button>
+  );
+};
+
+export default GPButton;

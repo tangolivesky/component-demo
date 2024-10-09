@@ -10,7 +10,7 @@ export default [
         input: "src/index.ts",
         output: [
             {
-                file: packageJson.module,
+                file: packageJson.browser,
                 format: "esm",
                 sourcemap: true,
             },
@@ -20,6 +20,7 @@ export default [
             commonjs(),
             typescript({ tsconfig: "./tsconfig.json" }),
         ],
+        external: ['react', 'react-dom', 'antd']
     },
     {
         input: "dist/types/index.d.ts",
